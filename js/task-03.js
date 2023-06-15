@@ -22,7 +22,8 @@ const itemsGalery = images
       `<li class = "gallery-item">
         <img class= "item-img"
         src="${url}" 
-        alt="${alt}">
+        alt="${alt}"
+        >
       </li>`
   )
   .join(" ");
