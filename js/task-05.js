@@ -6,12 +6,17 @@ const refs = {
 
 refs.inputEl.addEventListener("input", onInputElInput);
 
-function onInputElInput(event) {
-  event.preventDefault();
+// function onInputElInput(event) {
+//   event.preventDefault();
 
-  if (!event.currentTarget.value) {
-    refs.spanEl.textContent = "Anonymous";
-  } else {
-    refs.spanEl.textContent = event.currentTarget.value;
-  }
+//   if (!event.currentTarget.value) {
+//     refs.spanEl.textContent = "Anonymous";
+//   } else {
+//     refs.spanEl.textContent = event.currentTarget.value;
+//   }
+// }
+function onInputElInput(event) {
+  return !event.currentTarget.value
+    ? (refs.spanEl.textContent = "Anonymous")
+    : (refs.spanEl.textContent = event.currentTarget.value);
 }
