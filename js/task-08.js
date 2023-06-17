@@ -5,22 +5,20 @@ formLogin.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  //   console.log(event.currentTarget.elements);
-  const { email, password } = event.currentTarget.elements;
 
+  const { email, password } = event.currentTarget.elements;
+  // console.log(event.currentTarget.elements);
   const userData = {
     email: email.value,
     password: password.value,
   };
-  //   console.log(userData);
-  //   console.log(userData.email);
 
-  for (const key in userData) {
-    if (!userData[key].length) {
-      alert(`hhghgfh`);
+  Object.values(userData).forEach((value, idx) => {
+    if (!value.length) {
+      return alert(`Усі поля форми повинні бути заповненні`);
     } else {
-      userData;
+      console.log(userData);
+      document.querySelector(".login-form").reset();
     }
-    // console.log(userData);
-  }
+  });
 }
