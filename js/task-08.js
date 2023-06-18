@@ -13,12 +13,10 @@ function onFormSubmit(event) {
     password: password.value,
   };
 
-  Object.values(userData).forEach((value, idx) => {
-    if (!value.length) {
-      return alert(`Усі поля форми повинні бути заповненні`);
-    } else {
-      console.log(userData);
-      document.querySelector(".login-form").reset();
-    }
-  });
+  if (!email.value.length || !password.value.length) {
+    return alert(`Усі поля форми повинні бути заповненні`);
+  } else {
+    console.log(userData);
+    document.querySelector(".login-form").reset();
+  }
 }
