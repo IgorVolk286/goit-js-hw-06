@@ -22,22 +22,21 @@ function getAmound(event) {
 refs.btnCreat.addEventListener("click", createBoxes);
 
 function createBoxes() {
-  let step = refs.inputCounter.value;
+  let quantityDir = refs.inputCounter.value;
   let stepDirWH = 10;
 
-  for (let i = 0; i < step; i += 1) {
+  for (let i = 0; i < quantityDir; i += 1) {
     let dir = document.createElement("div");
-    let stepDirWH = "10px";
-    // let dir.style.width = "30px";
-    // let dir.style.height = "30px";
+    stepDirWH += 10;
     dir.classList.add("dir");
     dir.style.backgroundColor = getRandomHexColor();
 
-    dir.style.width += stepDirWH;
-    dir.style.height += stepDirWH;
+    dir.style.height += `${stepDirWH}px`;
+    dir.style.width += `${stepDirWH}px`;
+
     refs.divCollection.append(dir);
 
-    console.log(document.createElement("div"));
+    console.log(document.createElement("div").style);
   }
 }
 
