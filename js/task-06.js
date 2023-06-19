@@ -1,27 +1,20 @@
 const input = document.querySelector("#validation-input");
 console.log(input);
 
+input.addEventListener("blur", InputBlurLose);
+
 const dataLength = Number(input.getAttribute("data-length"));
 console.log(dataLength);
 
-input.addEventListener("blur", InputBlurLose);
-
 function InputBlurLose(event) {
-  console.log(event.currentTarget.value.length);
+  event.currentTarget.value.length;
+  // console.log(event.currentTarget.value.length);
 
-  if (
-    event.currentTarget.value.length === dataLength &&
-    input.classList.contains("invalid")
-  ) {
-    input.classList.replace("invalid", "valid");
-  } else if (event.currentTarget.value.length === dataLength) {
+  if (event.currentTarget.value.length === dataLength) {
+    input.classList.remove("invalid");
     input.classList.add("valid");
-  } else if (
-    event.currentTarget.value.length !== dataLength &&
-    input.classList.contains("valid")
-  ) {
-    input.classList.remove("valid", "invalid");
-  } else if (event.currentTarget.value.length !== dataLength) {
+  } else {
+    input.classList.remove("valid");
     input.classList.add("invalid");
   }
 }
